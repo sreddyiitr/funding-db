@@ -1,0 +1,21 @@
+services:
+  postgres:
+    image: postgres:18
+    container_name: funder-postgres
+    environment:
+      POSTGRES_USER: funder_admin
+      POSTGRES_PASSWORD: funder_dev_password
+      POSTGRES_DB: auto_funding_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata18:/var/lib/postgresql
+      - ./init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U funder_admin -d auto_funding_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  pgdata18:

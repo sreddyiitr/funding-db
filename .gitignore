@@ -1,0 +1,25 @@
+# Logs from the cron job
+daily_load.log
+*.log
+
+# Scratch output from running the scripts by hand
+out.sql
+shifted.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Local environment / secrets
+.env
+.env.*
+!.env.example
+
+# Editors / OS
+.idea/
+.vscode/
+.DS_Store
+
+# Claude Code local settings
+.claude/settings.local.json
